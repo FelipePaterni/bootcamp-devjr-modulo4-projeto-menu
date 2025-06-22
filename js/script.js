@@ -56,7 +56,7 @@ function calc() {
 
   reciboModalLabel.innerHTML = "Recibo do Pedido";
   recibo.innerHTML = `
-    <p id="intro" class="h5">Caro <span>${nome}</span>,</p>
+    <p id="intro" class="display-5">Caro <span>${nome}</span>,</p>
     <p>Segue os dados do seu pedido:</p>
     <ul id="output">${listItems}</ul>
     <p id="total"><strong>Total:</strong> ${formatter.format(totalFinal)}</p>
