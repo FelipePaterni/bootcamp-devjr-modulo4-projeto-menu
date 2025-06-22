@@ -10,12 +10,59 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <!--remove-->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/quantity.css" />
-    <title>Menu</title>
+    <title>Sabor & Alegria</title>
   </head>
 
   <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+      <img src="assets/logo.png" alt="Sabor & Alegria" width="70" >
+    </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cardápio</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="#">Reservas</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="#">Contato</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Pesquisar"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">
+              Pesquisar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid bg-body-secondary p-5">
       <h1 class="display-6 fw-normal text-center p-4">
         Menu - Faça Sua Escolha
@@ -228,13 +275,15 @@
             <label for="email" class="ms-3">Digite o seu email</label>
           </div>
         </div>
-          <div class="col-12 offset-0 col-md-8 offset-md-2 d-grid">
-          <button type="button" class="btn btn-primary btn-lg mt-3" onclick="calc()">
-          Calcular
-        </button>
-          </div>
-
-       
+        <div class="col-12 offset-0 col-md-8 offset-md-2 d-grid">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg mt-3"
+            onclick="calc()"
+          >
+            Calcular
+          </button>
+        </div>
       </form>
       <div id="recibo"></div>
       <!-- ajustar -->
