@@ -17,7 +17,6 @@ const formatter = new Intl.NumberFormat("pt-BR", {
 
 function calc() {
   const nome = document.getElementById("name").value.trim();
-
   const quantities = document.getElementsByName("quantity");
   let totalFinal = 0;
   let listItems = "";
@@ -31,18 +30,35 @@ function calc() {
 
       listItems += `
         <li>
-          Prato: ${product.name} -
-          Preço unitário: ${formatter.format(product.price)} -
-          Quantidade: ${quantity} -
-          Total: ${formatter.format(total)}
+          <strong>Prato:</strong> ${product.name} - <strong>Preço unitário:</strong> ${formatter.format(product.price)} - <strong>Quantidade:</strong> ${quantity} - <strong>Total:</strong> ${formatter.format(total)}
         </li>`;
     }
   });
 
-  document.getElementById("recibo").innerHTML = `
-    <p id="intro">Caro <span>${nome}</span></p>
-    <p>Segue os dados do seu pedido</p>
-    <p>O seu pedido é:</p>
+  const reciboModalLabel = document.getElementById("reciboModalLabel");
+  const recibo = document.getElementById("recibo");
+
+  if (!nome) {
+    reciboModalLabel.innerHTML = "Erro ao calcular o pedido";
+    recibo.innerHTML = `
+      <h3 class="text-danger text-center">Por favor, preencha o seu nome.</h3>
+    `;
+    return;
+  }
+
+  if (!listItems) {
+    reciboModalLabel.innerHTML = "Erro ao calcular o pedido";
+    recibo.innerHTML = `
+      <h3 class="text-danger text-center">Por favor, selecione pelo menos um item para fazer o pedido.</h3>
+    `;
+    return;
+  }
+
+  reciboModalLabel.innerHTML = "Recibo do Pedido";
+  recibo.innerHTML = `
+    <p id="intro" class="h5">Caro <span>${nome}</span>,</p>
+    <p>Segue os dados do seu pedido:</p>
     <ul id="output">${listItems}</ul>
-    <p id="total">Total: ${formatter.format(totalFinal)}</p>`;
+    <p id="total"><strong>Total:</strong> ${formatter.format(totalFinal)}</p>
+  `;
 }
